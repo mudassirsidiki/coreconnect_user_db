@@ -6,7 +6,6 @@ import Navbar from "@/components/dashboard/navbar"
 import FilterBar from "@/components/dashboard/filter-bar"
 import KPICards from "@/components/dashboard/kpi-cards"
 import ChartsSection from "@/components/dashboard/charts-section"
-import MapsSection from "@/components/dashboard/maps-section"
 import DrillDownModal from "@/components/dashboard/drill-down-modal"
 
 export default function Dashboard() {
@@ -14,6 +13,7 @@ export default function Dashboard() {
   const [selectedFilters, setSelectedFilters] = useState({
     industries: [],
     locations: [],
+    jobTitles: [],
     dateRange: "today",
   })
   const [drillDownData, setDrillDownData] = useState(null)
@@ -27,6 +27,7 @@ export default function Dashboard() {
     setSelectedFilters({
       industries: [],
       locations: [],
+      jobTitles: [],
       dateRange: "today",
     })
   }
@@ -68,9 +69,6 @@ export default function Dashboard() {
 
             {/* Charts Section */}
             <ChartsSection onDrillDown={handleDrillDown} filters={selectedFilters} />
-
-            {/* Maps Section */}
-            <MapsSection onDrillDown={handleDrillDown} filters={selectedFilters} />
           </div>
         </div>
       </div>

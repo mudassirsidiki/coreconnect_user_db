@@ -58,7 +58,7 @@ const kpiConfig = [
 
 export default function KPICards({ onDrillDown, filters }: KPICardsProps) {
   const kpiValues = useMemo(() => {
-    return getKPIValues(filters || { industries: [], locations: [], dateRange: "today" })
+    return getKPIValues(filters || { industries: [], locations: [], jobTitles: [], dateRange: "today" })
   }, [filters])
 
   const kpiData = [
