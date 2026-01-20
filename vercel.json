@@ -1,14 +1,7 @@
 {
   "buildCommand": "npm run build",
-  "devCommand": "npm run dev",
-  "installCommand": "npm install --legacy-peer-deps",
   "framework": "nextjs",
   "settings": {
     "nodeVersion": "20.x"
-  },
-  "build": {
-    "env": {
-      "NEXT_PRIVATE_SKIP_TYPE_CHECK": "1"
-    }
   }
 }
