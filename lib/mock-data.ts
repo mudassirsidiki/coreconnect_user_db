@@ -4,74 +4,79 @@ export interface Company {
   name: string
   industry: string
   location: string
+  region: string
   jobTitle: string
   companies: number
   contacts: number
 }
 
 export const allCompanies: Company[] = [
-  { id: 1, name: "Acme Corp", industry: "Technology", location: "USA", jobTitle: "Project Manager", companies: 12, contacts: 45 },
-  { id: 2, name: "Global Health Inc", industry: "Healthcare", location: "Canada", jobTitle: "Software Engineer", companies: 8, contacts: 32 },
-  { id: 3, name: "FinServe Solutions", industry: "Finance", location: "USA", jobTitle: "Sales Manager", companies: 15, contacts: 58 },
-  { id: 4, name: "RetailHub Ltd", industry: "Retail", location: "USA", jobTitle: "Marketing Director", companies: 6, contacts: 24 },
-  { id: 5, name: "ManuTech Global", industry: "Manufacturing", location: "Canada", jobTitle: "Operations Manager", companies: 4, contacts: 16 },
-  { id: 6, name: "TechVision Labs", industry: "Technology", location: "USA", jobTitle: "Project Manager", companies: 10, contacts: 38 },
-  { id: 7, name: "MediCare Systems", industry: "Healthcare", location: "USA", jobTitle: "Software Engineer", companies: 9, contacts: 35 },
-  { id: 8, name: "Capital Ventures", industry: "Finance", location: "Canada", jobTitle: "Sales Manager", companies: 11, contacts: 42 },
-  { id: 9, name: "ShopHub International", industry: "Retail", location: "USA", jobTitle: "Marketing Director", companies: 7, contacts: 28 },
-  { id: 10, name: "IndustrialMax", industry: "Manufacturing", location: "USA", jobTitle: "Operations Manager", companies: 5, contacts: 20 },
-  { id: 11, name: "CloudSync Solutions", industry: "Technology", location: "Canada", jobTitle: "Project Manager", companies: 14, contacts: 52 },
-  { id: 12, name: "WellnessPlus", industry: "Healthcare", location: "Canada", jobTitle: "Software Engineer", companies: 6, contacts: 25 },
-  { id: 13, name: "EduTech Academy", industry: "Education", location: "USA", jobTitle: "Sales Manager", companies: 9, contacts: 34 },
-  { id: 14, name: "PowerGrid Energy", industry: "Energy", location: "USA", jobTitle: "Marketing Director", companies: 12, contacts: 48 },
-  { id: 15, name: "PropertyPro Realty", industry: "Real Estate", location: "Canada", jobTitle: "Operations Manager", companies: 8, contacts: 31 },
-  { id: 16, name: "LogiTrans Global", industry: "Transportation", location: "USA", jobTitle: "Project Manager", companies: 11, contacts: 44 },
-  { id: 17, name: "FoodCorp International", industry: "Food & Beverage", location: "USA", jobTitle: "Software Engineer", companies: 13, contacts: 51 },
-  { id: 18, name: "MediaStream Entertainment", industry: "Entertainment", location: "Canada", jobTitle: "Sales Manager", companies: 7, contacts: 29 },
-  { id: 19, name: "AgriTech Solutions", industry: "Agriculture", location: "USA", jobTitle: "Marketing Director", companies: 6, contacts: 23 },
-  { id: 20, name: "BuildCorp Construction", industry: "Construction", location: "Canada", jobTitle: "Operations Manager", companies: 10, contacts: 39 },
-  { id: 21, name: "DataFlow Analytics", industry: "Technology", location: "USA", jobTitle: "Project Manager", companies: 16, contacts: 62 },
-  { id: 22, name: "HealthFirst Medical", industry: "Healthcare", location: "USA", jobTitle: "Software Engineer", companies: 11, contacts: 43 },
-  { id: 23, name: "BankTrust Financial", industry: "Finance", location: "Canada", jobTitle: "Sales Manager", companies: 9, contacts: 36 },
-  { id: 24, name: "MarketPlace Retail", industry: "Retail", location: "USA", jobTitle: "Marketing Director", companies: 8, contacts: 30 },
-  { id: 25, name: "AutoManufacturing Co", industry: "Manufacturing", location: "USA", jobTitle: "Operations Manager", companies: 14, contacts: 55 },
-  { id: 26, name: "LearnOnline Education", industry: "Education", location: "Canada", jobTitle: "Project Manager", companies: 7, contacts: 27 },
-  { id: 27, name: "SolarPower Energy", industry: "Energy", location: "USA", jobTitle: "Software Engineer", companies: 10, contacts: 40 },
-  { id: 28, name: "HomesRealty Group", industry: "Real Estate", location: "USA", jobTitle: "Sales Manager", companies: 9, contacts: 35 },
-  { id: 29, name: "FleetMasters Transport", industry: "Transportation", location: "Canada", jobTitle: "Marketing Director", companies: 8, contacts: 32 },
-  { id: 30, name: "FreshFood Markets", industry: "Food & Beverage", location: "Canada", jobTitle: "Operations Manager", companies: 11, contacts: 42 },
-  { id: 31, name: "CinemaMax Entertainment", industry: "Entertainment", location: "USA", jobTitle: "Project Manager", companies: 6, contacts: 24 },
-  { id: 32, name: "FarmTech Innovations", industry: "Agriculture", location: "USA", jobTitle: "Software Engineer", companies: 9, contacts: 34 },
-  { id: 33, name: "SteelBuild Construction", industry: "Construction", location: "USA", jobTitle: "Sales Manager", companies: 12, contacts: 47 },
-  { id: 34, name: "AI Solutions Inc", industry: "Technology", location: "Canada", jobTitle: "Marketing Director", companies: 13, contacts: 50 },
-  { id: 35, name: "PharmaCare Health", industry: "Healthcare", location: "Canada", jobTitle: "Operations Manager", companies: 10, contacts: 38 },
-  { id: 36, name: "Investment Partners", industry: "Finance", location: "USA", jobTitle: "Project Manager", companies: 12, contacts: 46 },
-  { id: 37, name: "MegaStore Retail", industry: "Retail", location: "USA", jobTitle: "Software Engineer", companies: 9, contacts: 33 },
-  { id: 38, name: "Precision Manufacturing", industry: "Manufacturing", location: "Canada", jobTitle: "Sales Manager", companies: 7, contacts: 28 },
-  { id: 39, name: "University Online", industry: "Education", location: "USA", jobTitle: "Marketing Director", companies: 8, contacts: 31 },
-  { id: 40, name: "WindPower Energy", industry: "Energy", location: "Canada", jobTitle: "Operations Manager", companies: 11, contacts: 41 },
-  { id: 41, name: "Commercial Realty", industry: "Real Estate", location: "USA", jobTitle: "Project Manager", companies: 10, contacts: 37 },
-  { id: 42, name: "Express Logistics", industry: "Transportation", location: "USA", jobTitle: "Software Engineer", companies: 13, contacts: 49 },
-  { id: 43, name: "BeverageCo Brands", industry: "Food & Beverage", location: "Canada", jobTitle: "Sales Manager", companies: 8, contacts: 30 },
-  { id: 44, name: "MusicStream Platform", industry: "Entertainment", location: "USA", jobTitle: "Marketing Director", companies: 7, contacts: 26 },
-  { id: 45, name: "Organic Farms Co", industry: "Agriculture", location: "Canada", jobTitle: "Operations Manager", companies: 9, contacts: 33 },
-  { id: 46, name: "InfraBuild Construction", industry: "Construction", location: "USA", jobTitle: "Project Manager", companies: 11, contacts: 41 },
-  { id: 47, name: "CyberSec Tech", industry: "Technology", location: "USA", jobTitle: "Software Engineer", companies: 15, contacts: 57 },
-  { id: 48, name: "Hospital Network", industry: "Healthcare", location: "USA", jobTitle: "Sales Manager", companies: 14, contacts: 53 },
-  { id: 49, name: "Credit Union Financial", industry: "Finance", location: "Canada", jobTitle: "Marketing Director", companies: 6, contacts: 22 },
-  { id: 50, name: "Fashion Retail Chain", industry: "Retail", location: "USA", jobTitle: "Operations Manager", companies: 10, contacts: 38 },
-  { id: 51, name: "Desert Tech Solutions", industry: "Technology", location: "UAE", jobTitle: "Project Manager", companies: 9, contacts: 36 },
-  { id: 52, name: "Gulf Finance Hub", industry: "Finance", location: "UAE", jobTitle: "Sales Manager", companies: 12, contacts: 48 },
-  { id: 53, name: "Emirates Retail Group", industry: "Retail", location: "UAE", jobTitle: "Marketing Director", companies: 8, contacts: 32 },
-  { id: 54, name: "Arabian Health Care", industry: "Healthcare", location: "UAE", jobTitle: "Software Engineer", companies: 11, contacts: 44 },
-  { id: 55, name: "Dubai Construction Co", industry: "Construction", location: "UAE", jobTitle: "Operations Manager", companies: 14, contacts: 55 },
-  { id: 56, name: "Middle East Logistics", industry: "Transportation", location: "UAE", jobTitle: "Project Manager", companies: 10, contacts: 40 },
-  { id: 57, name: "Oman Manufacturing", industry: "Manufacturing", location: "UAE", jobTitle: "Sales Manager", companies: 7, contacts: 28 },
-  { id: 58, name: "Abu Dhabi Energy", industry: "Energy", location: "UAE", jobTitle: "Software Engineer", companies: 15, contacts: 58 },
-  { id: 59, name: "Gulf Real Estate", industry: "Real Estate", location: "UAE", jobTitle: "Marketing Director", companies: 9, contacts: 35 },
-  { id: 60, name: "Sharjah Education", industry: "Education", location: "UAE", jobTitle: "Operations Manager", companies: 6, contacts: 24 },
-  { id: 61, name: "Ras Al Khaimah Tech", industry: "Technology", location: "UAE", jobTitle: "Project Manager", companies: 8, contacts: 31 },
-  { id: 62, name: "Fujairah Food Industries", industry: "Food & Beverage", location: "UAE", jobTitle: "Sales Manager", companies: 7, contacts: 27 },
+  // USA - Arizona
+  { id: 1, name: "Acme Corp", industry: "Technology", location: "Arizona", region: "USA", jobTitle: "Project Manager", companies: 12, contacts: 45 },
+  { id: 2, name: "TechVision Labs", industry: "Technology", location: "Arizona", region: "USA", jobTitle: "Project Manager", companies: 10, contacts: 38 },
+  { id: 3, name: "Desert Software", industry: "Technology", location: "Arizona", region: "USA", jobTitle: "Software Engineer", companies: 8, contacts: 32 },
+  // USA - California
+  { id: 4, name: "DataFlow Analytics", industry: "Technology", location: "California", region: "USA", jobTitle: "Project Manager", companies: 16, contacts: 62 },
+  { id: 5, name: "CyberSec Tech", industry: "Technology", location: "California", region: "USA", jobTitle: "Software Engineer", companies: 15, contacts: 57 },
+  { id: 6, name: "CloudSync Solutions", industry: "Technology", location: "California", region: "USA", jobTitle: "Project Manager", companies: 14, contacts: 52 },
+  // USA - Texas
+  { id: 7, name: "FinServe Solutions", industry: "Finance", location: "Texas", region: "USA", jobTitle: "Sales Manager", companies: 15, contacts: 58 },
+  { id: 8, name: "Investment Partners", industry: "Finance", location: "Texas", region: "USA", jobTitle: "Project Manager", companies: 12, contacts: 46 },
+  { id: 9, name: "Lone Star Finance", industry: "Finance", location: "Texas", region: "USA", jobTitle: "Sales Manager", companies: 11, contacts: 42 },
+  // USA - Florida
+  { id: 10, name: "RetailHub Ltd", industry: "Retail", location: "Florida", region: "USA", jobTitle: "Marketing Director", companies: 6, contacts: 24 },
+  { id: 11, name: "ShopHub International", industry: "Retail", location: "Florida", region: "USA", jobTitle: "Marketing Director", companies: 7, contacts: 28 },
+  { id: 12, name: "MarketPlace Retail", industry: "Retail", location: "Florida", region: "USA", jobTitle: "Marketing Director", companies: 8, contacts: 30 },
+  // USA - New York
+  { id: 13, name: "MediCare Systems", industry: "Healthcare", location: "New York", region: "USA", jobTitle: "Software Engineer", companies: 9, contacts: 35 },
+  { id: 14, name: "HealthFirst Medical", industry: "Healthcare", location: "New York", region: "USA", jobTitle: "Software Engineer", companies: 11, contacts: 43 },
+  { id: 15, name: "Hospital Network", industry: "Healthcare", location: "New York", region: "USA", jobTitle: "Sales Manager", companies: 14, contacts: 53 },
+  // USA - Illinois
+  { id: 16, name: "IndustrialMax", industry: "Manufacturing", location: "Illinois", region: "USA", jobTitle: "Operations Manager", companies: 5, contacts: 20 },
+  { id: 17, name: "AutoManufacturing Co", industry: "Manufacturing", location: "Illinois", region: "USA", jobTitle: "Operations Manager", companies: 14, contacts: 55 },
+  { id: 18, name: "Precision Manufacturing", industry: "Manufacturing", location: "Illinois", region: "USA", jobTitle: "Sales Manager", companies: 7, contacts: 28 },
+  // USA - Washington
+  { id: 19, name: "EduTech Academy", industry: "Education", location: "Washington", region: "USA", jobTitle: "Sales Manager", companies: 9, contacts: 34 },
+  { id: 20, name: "University Online", industry: "Education", location: "Washington", region: "USA", jobTitle: "Marketing Director", companies: 8, contacts: 31 },
+  { id: 21, name: "Digital Learning Co", industry: "Education", location: "Washington", region: "USA", jobTitle: "Project Manager", companies: 6, contacts: 24 },
+
+  // Canada - Alberta
+  { id: 22, name: "ManuTech Global", industry: "Manufacturing", location: "Alberta", region: "Canada", jobTitle: "Operations Manager", companies: 4, contacts: 16 },
+  { id: 23, name: "Western Energy", industry: "Energy", location: "Alberta", region: "Canada", jobTitle: "Operations Manager", companies: 8, contacts: 32 },
+  { id: 24, name: "Prairie Manufacturing", industry: "Manufacturing", location: "Alberta", region: "Canada", jobTitle: "Sales Manager", companies: 5, contacts: 20 },
+  // Canada - Ontario
+  { id: 25, name: "Global Health Inc", industry: "Healthcare", location: "Ontario", region: "Canada", jobTitle: "Software Engineer", companies: 8, contacts: 32 },
+  { id: 26, name: "Capital Ventures", industry: "Finance", location: "Ontario", region: "Canada", jobTitle: "Sales Manager", companies: 11, contacts: 42 },
+  { id: 27, name: "BankTrust Financial", industry: "Finance", location: "Ontario", region: "Canada", jobTitle: "Sales Manager", companies: 9, contacts: 36 },
+  { id: 28, name: "WellnessPlus", industry: "Healthcare", location: "Ontario", region: "Canada", jobTitle: "Software Engineer", companies: 6, contacts: 25 },
+  // Canada - Quebec
+  { id: 29, name: "BuildCorp Construction", industry: "Construction", location: "Quebec", region: "Canada", jobTitle: "Operations Manager", companies: 10, contacts: 39 },
+  { id: 30, name: "Montreal Tech", industry: "Technology", location: "Quebec", region: "Canada", jobTitle: "Project Manager", companies: 7, contacts: 27 },
+  { id: 31, name: "French Construction", industry: "Construction", location: "Quebec", region: "Canada", jobTitle: "Operations Manager", companies: 8, contacts: 31 },
+  // Canada - British Columbia
+  { id: 32, name: "PropertyPro Realty", industry: "Real Estate", location: "British Columbia", region: "Canada", jobTitle: "Operations Manager", companies: 8, contacts: 31 },
+  { id: 33, name: "Pacific Logistics", industry: "Transportation", location: "British Columbia", region: "Canada", jobTitle: "Marketing Director", companies: 9, contacts: 35 },
+  { id: 34, name: "West Coast Retail", industry: "Retail", location: "British Columbia", region: "Canada", jobTitle: "Marketing Director", companies: 6, contacts: 23 },
+
+  // UAE - Dubai
+  { id: 35, name: "Desert Tech Solutions", industry: "Technology", location: "Dubai", region: "UAE", jobTitle: "Project Manager", companies: 9, contacts: 36 },
+  { id: 36, name: "Dubai Construction Co", industry: "Construction", location: "Dubai", region: "UAE", jobTitle: "Operations Manager", companies: 14, contacts: 55 },
+  { id: 37, name: "Gulf Finance Hub", industry: "Finance", location: "Dubai", region: "UAE", jobTitle: "Sales Manager", companies: 12, contacts: 48 },
+  { id: 38, name: "Emirates Retail Group", industry: "Retail", location: "Dubai", region: "UAE", jobTitle: "Marketing Director", companies: 8, contacts: 32 },
+  { id: 39, name: "Dubai Properties", industry: "Real Estate", location: "Dubai", region: "UAE", jobTitle: "Marketing Director", companies: 10, contacts: 38 },
+  // UAE - Abu Dhabi
+  { id: 40, name: "Abu Dhabi Energy", industry: "Energy", location: "Abu Dhabi", region: "UAE", jobTitle: "Software Engineer", companies: 15, contacts: 58 },
+  { id: 41, name: "Capital Tech", industry: "Technology", location: "Abu Dhabi", region: "UAE", jobTitle: "Project Manager", companies: 11, contacts: 42 },
+  { id: 42, name: "Abu Dhabi Healthcare", industry: "Healthcare", location: "Abu Dhabi", region: "UAE", jobTitle: "Software Engineer", companies: 9, contacts: 35 },
+  // UAE - Sharjah
+  { id: 43, name: "Sharjah Education", industry: "Education", location: "Sharjah", region: "UAE", jobTitle: "Operations Manager", companies: 6, contacts: 24 },
+  { id: 44, name: "Northern Industries", industry: "Manufacturing", location: "Sharjah", region: "UAE", jobTitle: "Sales Manager", companies: 7, contacts: 28 },
+  // UAE - Ras Al Khaimah
+  { id: 45, name: "Ras Al Khaimah Tech", industry: "Technology", location: "Ras Al Khaimah", region: "UAE", jobTitle: "Project Manager", companies: 8, contacts: 31 },
+  { id: 46, name: "RAK Manufacturing", industry: "Manufacturing", location: "Ras Al Khaimah", region: "UAE", jobTitle: "Operations Manager", companies: 5, contacts: 19 },
+  // UAE - Fujairah
+  { id: 47, name: "Fujairah Food Industries", industry: "Food & Beverage", location: "Fujairah", region: "UAE", jobTitle: "Sales Manager", companies: 7, contacts: 27 },
+  { id: 48, name: "East Coast Logistics", industry: "Transportation", location: "Fujairah", region: "UAE", jobTitle: "Project Manager", companies: 6, contacts: 23 },
 ]
 
 export function getFilteredData(filters: { industries: string[]; locations: string[]; jobTitles: string[]; dateRange: string }) {
@@ -81,8 +86,9 @@ export function getFilteredData(filters: { industries: string[]; locations: stri
     filtered = filtered.filter((c) => filters.industries.includes(c.industry))
   }
 
+  // Filter by region (USA, Canada, UAE) instead of location
   if (filters.locations.length > 0) {
-    filtered = filtered.filter((c) => filters.locations.includes(c.location))
+    filtered = filtered.filter((c) => filters.locations.includes(c.region))
   }
 
   if (filters.jobTitles.length > 0) {
@@ -165,16 +171,16 @@ export function getChartData(filters: { industries: string[]; locations: string[
 export function generateMonthlyTrendData(filtered: Company[]) {
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
-  // Calculate base values
-  const usaCompanies = filtered.filter(c => c.location === "USA").length
-  const canadaCompanies = filtered.filter(c => c.location === "Canada").length
-  const uaeCompanies = filtered.filter(c => c.location === "UAE").length
-  const usaContacts = filtered.filter(c => c.location === "USA").reduce((sum, c) => sum + c.contacts, 0)
-  const canadaContacts = filtered.filter(c => c.location === "Canada").reduce((sum, c) => sum + c.contacts, 0)
-  const uaeContacts = filtered.filter(c => c.location === "UAE").reduce((sum, c) => sum + c.contacts, 0)
-  const usaIndustries = new Set(filtered.filter(c => c.location === "USA").map(c => c.industry)).size
-  const canadaIndustries = new Set(filtered.filter(c => c.location === "Canada").map(c => c.industry)).size
-  const uaeIndustries = new Set(filtered.filter(c => c.location === "UAE").map(c => c.industry)).size
+  // Calculate base values using region
+  const usaCompanies = filtered.filter(c => c.region === "USA").length
+  const canadaCompanies = filtered.filter(c => c.region === "Canada").length
+  const uaeCompanies = filtered.filter(c => c.region === "UAE").length
+  const usaContacts = filtered.filter(c => c.region === "USA").reduce((sum, c) => sum + c.contacts, 0)
+  const canadaContacts = filtered.filter(c => c.region === "Canada").reduce((sum, c) => sum + c.contacts, 0)
+  const uaeContacts = filtered.filter(c => c.region === "UAE").reduce((sum, c) => sum + c.contacts, 0)
+  const usaIndustries = new Set(filtered.filter(c => c.region === "USA").map(c => c.industry)).size
+  const canadaIndustries = new Set(filtered.filter(c => c.region === "Canada").map(c => c.industry)).size
+  const uaeIndustries = new Set(filtered.filter(c => c.region === "UAE").map(c => c.industry)).size
 
   // Generate monthly trends with variation
   return months.map((month, index) => {
@@ -359,15 +365,15 @@ export function getMapData(
   }
 
   filtered.forEach((c) => {
-    if (c.location === "USA") {
+    if (c.region === "USA") {
       usaData.industries.add(c.industry)
       usaData.companies += 1
       usaData.contacts += c.contacts
-    } else if (c.location === "Canada") {
+    } else if (c.region === "Canada") {
       canadaData.industries.add(c.industry)
       canadaData.companies += 1
       canadaData.contacts += c.contacts
-    } else if (c.location === "UAE") {
+    } else if (c.region === "UAE") {
       uaeData.industries.add(c.industry)
       uaeData.companies += 1
       uaeData.contacts += c.contacts
@@ -538,13 +544,13 @@ export function getCompaniesByIndustry(industry: string): CompanyDetails[] {
 }
 
 export function getContactsByRegion(region: string): Contact[] {
-  const filtered = allCompanies.filter(c => c.location === region)
+  const filtered = allCompanies.filter(c => c.region === region)
   const companyNames = new Set(filtered.map(c => c.name))
   return allContacts.filter(c => companyNames.has(c.company))
 }
 
 export function getCompaniesByRegion(region: string): CompanyDetails[] {
-  const filtered = allCompanies.filter(c => c.location === region)
+  const filtered = allCompanies.filter(c => c.region === region)
   const companyNames = new Set(filtered.map(c => c.name))
   return allCompanyDetails.filter(c => companyNames.has(c.name))
 }

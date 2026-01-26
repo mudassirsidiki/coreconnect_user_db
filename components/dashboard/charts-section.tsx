@@ -12,11 +12,13 @@ import {
   Legend,
   ResponsiveContainer,
   LabelList,
+  PieChart,
+  Pie,
+  Cell,
 } from "recharts"
-import { ChevronDown, ChevronUp } from "lucide-react"
 import { useMemo, useState } from "react"
 import { getChartData, getProjectStatusData } from "@/lib/mock-data"
-import { Search, ArrowUp, ArrowDown } from "lucide-react"
+import { Search } from "lucide-react"
 
 interface ChartsSectionProps {
   onDrillDown: (data: any) => void
@@ -29,10 +31,24 @@ export default function ChartsSection({ onDrillDown, filters }: ChartsSectionPro
   const [industrySortBy, setIndustrySortBy] = useState<"industry" | "companies" | "contacts">("companies")
   const [industrySortOrder, setIndustrySortOrder] = useState<"asc" | "desc">("desc")
   const [statusFilter, setStatusFilter] = useState<"All" | "Completed" | "In Progress" | "On Hold" | "Not Started">("All")
+  const [countryFilter, setCountryFilter] = useState<"All" | "USA" | "Canada" | "UAE">("All")
   
   const { companiesByLocation, industriesData, trendData, monthlyTrendData } = useMemo(() => {
-    return getChartData(filters || { industries: [], locations: [], jobTitles: [], dateRange: "today" })
-  }, [filters])
+    const baseFilters = filters || { industries: [], locations: [], jobTitles: [], dateRange: "today" }
+    // Apply country filter to locations
+    const filtersWithCountry = countryFilter !== "All"
+      ? { ...baseFilters, locations: [countryFilter] }
+      : baseFilters
+    return getChartData(filtersWithCountry)
+  }, [filters, countryFilter])
+
+  // Pie chart colors for industries
+  const pieColors = [
+    "#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6",
+    "#06b6d4", "#ec4899", "#84cc16", "#f97316", "#6366f1",
+    "#14b8a6", "#a855f7", "#eab308", "#22c55e", "#0ea5e9",
+    "#d946ef", "#f43f5e", "#a3e635", "#fb923c", "#818cf8"
+  ]
 
   const projectStatusData = useMemo(() => {
     const allProjects = getProjectStatusData(filters || { industries: [], locations: [], jobTitles: [], dateRange: "today" })
@@ -113,41 +129,102 @@ export default function ChartsSection({ onDrillDown, filters }: ChartsSectionPro
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      {/* Companies by Region */}
-      <div
-        onClick={() => onDrillDown({ type: "companies", title: "Companies by Region" })}
-        className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow cursor-pointer border border-gray-200"
-      >
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Companies & Region</h3>
-        <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={companiesByLocation}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-            <XAxis dataKey="location" />
-            <YAxis />
-            <Tooltip 
-              content={({ active, payload }) => {
-                if (active && payload && payload.length) {
-                  const data = payload[0].payload
-                  return (
-                    <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-3">
-                      <p className="font-semibold text-gray-900 mb-2">{data.location}</p>
-                      <p className="text-sm text-gray-700">
-                        <span className="font-medium">Companies:</span> {data.companies.toLocaleString()}
-                      </p>
-                      <p className="text-sm text-gray-700">
-                        <span className="font-medium">Contacts:</span> {data.contacts.toLocaleString()}
-                      </p>
-                    </div>
-                  )
-                }
-                return null
-              }}
-            />
-            <Bar dataKey="companies" fill="#3b82f6" radius={[8, 8, 0, 0]} />
-          </BarChart>
-        </ResponsiveContainer>
-        <p className="text-xs text-gray-500 mt-3">Click to view detailed breakdown by region</p>
-      </div>
+      {/* Locations Pie Chart with Country Slicer */}
+      {companiesByLocation.length > 0 && (
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+          {/* Country Slicer */}
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-semibold text-gray-900">Locations</h3>
+            <div className="flex gap-2">
+              <button
+                onClick={() => setCountryFilter("All")}
+                className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
+                  countryFilter === "All"
+                    ? "bg-blue-600 text-white shadow-md"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+              >
+                All
+              </button>
+              <button
+                onClick={() => setCountryFilter("USA")}
+                className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
+                  countryFilter === "USA"
+                    ? "bg-blue-600 text-white shadow-md"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+              >
+                USA
+              </button>
+              <button
+                onClick={() => setCountryFilter("Canada")}
+                className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
+                  countryFilter === "Canada"
+                    ? "bg-blue-600 text-white shadow-md"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+              >
+                Canada
+              </button>
+              <button
+                onClick={() => setCountryFilter("UAE")}
+                className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
+                  countryFilter === "UAE"
+                    ? "bg-blue-600 text-white shadow-md"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+              >
+                UAE
+              </button>
+            </div>
+          </div>
+
+          {/* Pie Chart */}
+          <ResponsiveContainer width="100%" height={280}>
+            <PieChart>
+              <Pie
+                data={companiesByLocation}
+                cx="50%"
+                cy="50%"
+                labelLine={false}
+                label={(entry) => entry.location}
+                outerRadius={90}
+                fill="#8884d8"
+                dataKey="companies"
+              >
+                {companiesByLocation.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={pieColors[index % pieColors.length]} />
+                ))}
+              </Pie>
+              <Tooltip
+                content={({ active, payload }) => {
+                  if (active && payload && payload.length) {
+                    const data = payload[0].payload
+                    return (
+                      <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-3">
+                        <p className="font-semibold text-gray-900 mb-2">{data.location}</p>
+                        <p className="text-sm text-gray-700">
+                          <span className="font-medium">Companies:</span> {data.companies}
+                        </p>
+                        <p className="text-sm text-gray-700">
+                          <span className="font-medium">Contacts:</span> {data.contacts}
+                        </p>
+                      </div>
+                    )
+                  }
+                  return null
+                }}
+              />
+            </PieChart>
+          </ResponsiveContainer>
+
+          {/* Summary Footer */}
+          <div className="mt-2 text-center text-xs text-gray-600">
+            Showing <span className="font-semibold text-gray-900">{companiesByLocation.length}</span> locations
+            {countryFilter !== "All" && ` (${countryFilter})`}
+          </div>
+        </div>
+      )}
 
       {/* Industries Bar Chart */}
       {industriesData.length > 0 && (
